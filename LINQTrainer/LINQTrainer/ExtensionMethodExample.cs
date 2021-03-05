@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LINQTrainer
 {
-    public static class MyLinq
+    public static class ExtensionMethodExample
     {
         public static int ECount<T>(this IEnumerable<T> sequence)
         {
