@@ -11,9 +11,10 @@ namespace LINQTrainer
         static void Main(string[] args)
         {
             string path = @"C:\windows";
-            var WithOutLink = new WithoutLinq();
+            var WithOutLinq = new WithoutLinq();
             //WithoutLinq.ShowLargeFilesWithoutLinq(path);
-            WithOutLink.IEnumeratorExample();
+            //WithOutLinq.IEnumeratorExample();
+            WithOutLinq.ShowScottListLegacy();
 
             var WithLinq = new WithLinq();
             //WithLinq.ShowLargeFilesWithLinq(path);
