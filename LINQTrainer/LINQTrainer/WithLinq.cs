@@ -25,5 +25,28 @@ namespace LINQTrainer
 
         }
 
+        public void ShowScottList()
+        {
+
+            IEnumerable<Employee> employees = new List<Employee>()
+            {
+                new Employee { firstName = "Scott", lastName = "Alen" },
+                new Employee { firstName = "Bob", lastName = "Martin" }
+            };
+
+            IEnumerable<Employee> scottList = employees.Where(item => item.firstName == "Scott");
+
+            foreach(var scott in scottList)
+            {
+                Console.WriteLine($"{scott.firstName} {scott.lastName} \n");
+            }
+
+        }
+
+
+
+            
+        
+
     }
 }
