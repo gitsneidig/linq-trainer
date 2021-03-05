@@ -44,7 +44,7 @@ namespace LINQTrainer
                 new Employee { firstName = "Bob", lastName = "Martin" }
             };
 
-            Console.WriteLine(employees.Count());
+            Console.WriteLine(employees.ECount());
 
             /*/
             // EnumerableExtensions is in namespace Microsoft.Practices.ObjectBuildedr2
