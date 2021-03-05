@@ -12,10 +12,14 @@ namespace LINQTrainer
         {
             string path = @"C:\windows";
             var WithOutLink = new WithoutLinq();
-            WithoutLinq.ShowLargeFilesWithoutLinq(path);
+            //WithoutLinq.ShowLargeFilesWithoutLinq(path);
+            WithOutLink.IEnumeratorExample();
 
             var WithLinq = new WithLinq();
-            WithLinq.ShowLargeFilesWithLinq(path);
+            //WithLinq.ShowLargeFilesWithLinq(path);
+            // WithLinq.ShowScottList();
+
+
         }
 
     }
