@@ -6,29 +6,29 @@ using System.Text;
 
 namespace LINQTrainer
 {
-    class CustomFilterOperator
+    public static class CustomFilterOperator
     {
 
-        public IEnumerable<Movies> MovieTester()
+        // This is a textbooks LINQ operator, it has 
+        // an extension method for IEnumerable<T>, with this keyword
+        // it returns an IEnumerable<T>
+        // it has a Func parameter that expresses how the list processed
+        public static IEnumerable<T> Filter<T>(this IEnumerable<T> source, 
+                                                Func<T, bool> predicate)
         {
+            var result = new List<T>();
 
-            var movies = new List<Movies>()
+             foreach (var item in source)
             {
-                new Movies { Title = "The Dark Knight", Rating = 8.1f, Year = 2015 },
-                new Movies { Title = "The King's Speech", Rating = 8.2f, Year = 2016 },
-                new Movies { Title = "Casblanca", Rating = 8.3f, Year = 2017 },
-                new Movies { Title = "Star Wars V", Rating = 8.4f, Year = 2018 }
-            };
+                if(predicate(item))
+                {
+                    result.Add(item);
+                }
+            }
 
-            var query = movies.Where(m => m.Year > 2016);
-
-            return query;
-
-            /*/
-            foreach (var movie in query)
-            {
-                Console.Write(movie);
-            }/*/
+            return result;
         }
+
+
     }
 }

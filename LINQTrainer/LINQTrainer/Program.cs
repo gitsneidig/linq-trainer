@@ -20,11 +20,11 @@ namespace LINQTrainer
             //WithLinq.ShowLargeFilesWithLinq(path);
             // WithLinq.ShowScottList();
 
-            var movieList = new CustomFilterOperator();
-            foreach (var movie in movieList.MovieTester())
-            {
-                Console.WriteLine($"{movie.Title}");
-            }
+            var movieList = new MovieExamples();
+            //foreach (var movie in movieList.MovieTester())
+            //{
+            //    Console.WriteLine($"{movie.Title}");
+            //}
             
 
 
