@@ -9,6 +9,8 @@ namespace LINQTrainer
     public static class CustomFilterOperator
     {
 
+        
+
         // This is a textbooks LINQ operator, it has 
         // an extension method for IEnumerable<T>, with this keyword
         // it returns an IEnumerable<T>
