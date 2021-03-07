@@ -27,11 +27,15 @@ namespace LINQTrainer
             //    Console.WriteLine($"{movie.Title}");
             //}
 
-            var carsRepo = new Cars();
-            List<Car> cars = carsRepo.ProccessFile("C:/dev/github/new/linq-trainer/linq-trainer/LINQTrainer/LINQTrainer/CSV/fuel.csv");
-            foreach (var car in cars)
+            var carsProcessor = new Cars();
+            var cars = carsProcessor.ProccessFile("C:/dev/github/new/linq-trainer/linq-trainer/LINQTrainer/LINQTrainer/CSV/fuel.csv");
+            var descQuery = cars.Where(c => c.Manufacturer == "BMW").OrderByDescending(c => c.Combined).ThenBy(c => c.Name).Select(c => c);
+
+
+
+            foreach (var car in descQuery.Take(10))
             {
-                Console.WriteLine(car.Name);
+                Console.WriteLine($" {car.Name} : {car.Combined}");
             }
 
         }
