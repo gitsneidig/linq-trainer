@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace LINQTrainer
 {
@@ -31,16 +32,17 @@ namespace LINQTrainer
             //var cars = carsProcessor.ProccessFile("C:/dev/github/new/linq-trainer/linq-trainer/LINQTrainer/LINQTrainer/CSV/fuel.csv");
 
             var cars = CarExtensions.ProccessFile("C:/dev/github/new/linq-trainer/linq-trainer/LINQTrainer/LINQTrainer/CSV/fuel.csv");
-            var descQuery = cars.Where(c => c.Manufacturer == "BMW").OrderByDescending(c => c.Combined).ThenBy(c => c.Name).Select(c => c);
+            var descQuery = cars.Where(c => c.Manufacturer == "BMW").OrderByDescending(c => c.Combined).ThenBy(c => c.Name).Select(c => c).ToList<Car>();
 
+            var carsXml = new CarsXml();
+            carsXml.GenerateXmlFile(descQuery);
+            
 
-
-
-
+            /*/
             foreach (var car in descQuery.Take(10))
             {
                 Console.WriteLine($" {car.Name} : {car.Combined}");
-            }
+            }/*/
 
         }
     }
