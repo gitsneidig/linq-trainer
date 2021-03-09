@@ -18,13 +18,22 @@ namespace LINQTrainer
 
             foreach (var item in queryResult.Take(10))
             {
+
+                var car = new XElement("Car",
+                          new XElement("Name", item.Name),
+                          new XElement("Combined", item.Combined));
+
+                carsElem.Add(car);
+
+                /*/
                 var car = new XElement("Car");
                 var name = new XElement("Name", item.Name);
-                var combined = new XAttribute("Combined", item.Combined);
+                var combined = new XElement("Combined", item.Combined);
 
-                car.Add(name);
-                car.Add(combined);
+                carsElem.Add(name);
+                carsElem.Add(combined);
                 carsElem.Add(car);
+                /*/
 
             }
 
