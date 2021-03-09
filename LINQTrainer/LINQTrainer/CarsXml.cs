@@ -21,9 +21,12 @@ namespace LINQTrainer
                 from item in queryResult
                 select new XElement("Car",
                           new XElement("Name", item.Name),
-                          new XElement("Combined", item.Combined));
+                          new XAttribute("Combined", item.Combined));
 
+            carsElem.Add(elements);
 
+            document.Add(carsElem);
+            document.Save("fuel.xml");
             // Syntax 2
             /*/
             foreach (var item in queryResult.Take(10))
