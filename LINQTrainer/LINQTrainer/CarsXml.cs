@@ -18,7 +18,7 @@ namespace LINQTrainer
                 from item in queryResult
                 select new XElement("Car",
                           new XElement("Name", item.Name),
-                          new XAttribute("Combined", item.Combined)));
+                          new XElement("Combined", item.Combined)));
 
             document.Add(carsElem);
             document.Save("fuel.xml");
@@ -51,6 +51,24 @@ namespace LINQTrainer
         document.Save("fuel.xml");
 
         /*/
+
+        }
+
+
+        public void QueryXml()
+        {
+
+            var document = XDocument.Load("fuel.xml");
+
+            var query =
+                from element in document.Element("Cars").Elements("Car")
+                where element.Element("Combined").Value == "34"
+                select element.Element("Name").Value;
+
+            foreach (var name in query)
+            {
+                Console.Write(name);
+            }
 
         }
 

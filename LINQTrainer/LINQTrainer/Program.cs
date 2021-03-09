@@ -35,7 +35,8 @@ namespace LINQTrainer
             var descQuery = cars.Where(c => c.Manufacturer == "BMW").OrderByDescending(c => c.Combined).ThenBy(c => c.Name).Select(c => c).ToList<Car>();
 
             var carsXml = new CarsXml();
-            carsXml.GenerateXmlFile(descQuery);
+            //carsXml.GenerateXmlFile(descQuery);
+            carsXml.QueryXml();
             
 
             /*/
