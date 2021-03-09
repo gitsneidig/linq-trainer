@@ -14,16 +14,11 @@ namespace LINQTrainer
         {
 
             var document = new XDocument();
-            var carsElem = new XElement("Cars");
-
-            // Syntax 3
-            var elements = 
+            var carsElem = new XElement("Cars", 
                 from item in queryResult
                 select new XElement("Car",
                           new XElement("Name", item.Name),
-                          new XAttribute("Combined", item.Combined));
-
-            carsElem.Add(elements);
+                          new XAttribute("Combined", item.Combined)));
 
             document.Add(carsElem);
             document.Save("fuel.xml");
